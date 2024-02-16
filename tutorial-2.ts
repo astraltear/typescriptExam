@@ -12,3 +12,11 @@ const user: User ={
         github : "tear"
     }
 }
+
+const myShow2: {
+    first: string;
+    second: string;
+} = {
+    first: "squid",
+    second: "name"
+}
