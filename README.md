@@ -13,13 +13,12 @@ tsc app.ts util.ts
 
 # typescript 컴파일러 설정 초기화 
 # tsconfig.json 파일이 생성됨   
-# 오류가 있을 경우에는 .js 파일 생성하지 않는다는 설정 
-# 작동안함(bug 같다는 문서가 보임)
+# 오류가 있을 경우에는 .js 파일 생성하지 않는다는 설정  작동안함(bug 같다는 문서가 보임)
 tsc --init
 "noEmitOnError": true,    
-
 # 아래와 같이 하면 정상적으로 작동함 오류가 있으면 js 파일 생성 안함 
 tsc --noEmitOnError .\tutorial-1.ts
+
 
 # ts 컴파일 없이 실행
 npm install ts-node
@@ -34,3 +33,4 @@ npx ts-node index.ts
 
 npm run start
 
+# 
