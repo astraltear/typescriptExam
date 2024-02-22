@@ -16,7 +16,10 @@ function parseCoodinate(arg1 :unknown, arg2? :unknown) :Coodinate{
         (arg1 as string).split(",").forEach(
                 str => {
                     const [key,value] = str.split(":");
-                    coord[key as 'x' | 'y'] = parseInt(value,10);
+                    coord[key as 'x' | 'y'] = parseInt(value,10); 
+                    //  key 변수는 'x' 또는 'y' 중 하나의 값을 갖는 변수
+                // coord[key as 'x' | 'y']는 coord 객체에서 'x' 또는 'y' 중 선택된 속성에 접근
+                // 이때 key가 'x'이면 'x' 속성에, 'y'이면 'y' 속성에 접근
                 }
         );
     } else {
