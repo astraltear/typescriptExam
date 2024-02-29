@@ -74,3 +74,4 @@ function stringLiteral(color :string, data :unknown) :void {
 }
 
 stringLiteral("RED",{code:11111} );
+stringLiteral("BLUE",{desc :"stringtest"});
