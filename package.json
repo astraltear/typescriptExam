@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@types/node": "^20.11.22",
+    "sql.js": "^1.10.2",
+    "xml2json-light": "^1.0.6"
+  }
+}
