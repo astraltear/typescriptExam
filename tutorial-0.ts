@@ -73,8 +73,8 @@ interface Developer3{
 // 어느 타입이 들어오든 간에 오류가 안 나는 방향으로 타입을 추론하게 됩니다.
 function introduce(someone : Person3 | Developer3){
   someone.name; // O 정상 동작
-  someone.age; // X 타입 오류
-  someone.skill; // X 타입 오류
+//   someone.age; // X 타입 오류
+//   someone.skill; // X 타입 오류
 }
 
 interface Person4 {
@@ -95,4 +95,70 @@ intersect.skill=4;
 //  제네릭 기본 문법이 적용된 형태
 function getText<T>(text: T): T {
     return text;
-  }
+}
+
+
+//  any는 어떠한 타입도 허용한다는 의미로 그러므로 정적 타입 검사를 수행할 수 없게 됩니다
+//  any 유형에 의해 컴파일 오류가 발생하지 않는다 . 실행시 오류가 발생
+let obj :any = {x :0,y :"abc"};
+
+
+// obj.foo();
+// obj();
+obj.bar = 100;
+console.log("obj.bar::::",obj);
+obj = "hello";
+console.log("obj::::",obj);
+const n: number = obj;
+
+const names1 = ["Alice", "Bob", "Eve"];
+names1.forEach(  function(e) { console.log(e.toUpperCase() ) ;}  );
+
+function printCoord( pt: {x: number , y:number}){ console.log(pt) }
+
+let param1 = {x:4, y:9};
+printCoord(param1);
+printCoord({x:67, y:999});
+
+function printName( obj :{first :string , last? :string}){
+    
+    // console.log(obj.last.toUpperCase()); // error
+    console.log(obj.last?.toUpperCase());
+
+    if(obj.last !== undefined){
+        console.log(obj.last.toUpperCase());
+    }
+}
+
+printName({first: "gold"});
+
+type Point1={
+    x: number,
+    y: number
+}
+
+function point1Funct(pt: Point1){
+    console.log("The coordinate's x value is " + pt.x);
+    console.log("The coordinate's y value is " + pt.y);
+}
+
+point1Funct({x:222, y:3333});
+
+
+function padLeft(padding: number | string , input: string){
+    if(typeof padding ==="number"){
+        return "".repeat(padding)+input;
+    }
+    
+    return padding+input;
+};
+
+const obj2: {[key: string]: number} =  { a: 1, b: 2, c: 3 };
+for (const key in obj2){
+    console.log(key);
+    obj2.hasOwnProperty(key);
+    const value: number = obj2[key];
+    
+    console.log("obj2.key:::",value);
+}
+
