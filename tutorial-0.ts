@@ -162,3 +162,34 @@ for (const key in obj2){
     console.log("obj2.key:::",value);
 }
 
+function greeter(fn: (a: string)=>void, param1: string){
+    fn( param1 );
+}
+
+function printToConsole(str: string){
+    console.log(str);
+}
+
+greeter(printToConsole,"CONTACT_CONTACT");
+
+
+function firstElement<T>(arr: T[]): T |undefined {
+    return arr[0];
+}
+
+// s is of type 'string'
+const s = firstElement(["a", "b", "c"]);
+// n is of type 'number'
+const n1 = firstElement([1, 2, 3]);
+// u is of type undefined
+const u = firstElement([]);
+
+function myForEach(arr: any[], callback: (arg: any, index?: number, str?: string) =>void){
+    for (let i = 0; i < arr.length; i++) {
+        callback(arr[i], i,"string");
+    }
+}
+
+myForEach([10,20,30], function(a,i){ console.log(a,i) });
+myForEach([10,20,30],  (a) => console.log(a) );
+
