@@ -70,6 +70,11 @@ console.log(user101.name);
 user101.gender="M";
 console.log(user101);
 
+let user103: {name:string, age:string}={
+    name:'user103-name', age:"01"
+}
+console.log("user103.age:::>",user103.age);
+
 let user102 :user101Type = user101;
 
 
@@ -94,3 +99,60 @@ let isaudult107 :isAdult105  = (z)=>{
     return z >19;
 }
 console.log(isaudult107(33));
+
+let arr108 :Array<number> = [1,2,3];
+
+type Member100={
+    [key :string] :string;
+}
+
+let member101 :Member100={
+    name:"name_value", pwd:"pwd_value", c:"c_value", 1:"1_value",
+}
+console.log(member101[1])  // member101.1 이건 안 된다. 
+console.log(member101.c)
+
+
+// TypeScript에서 any 타입으로 선언된 변수에는 모든 타입의 값이 할당될 수 있으므로, 
+// any 타입의 변수에 객체를 할당한 후에는 해당 변수를 문자열 타입으로 선언한 변수에 할당하는 것이 가능
+// 이는 TypeScript에서 타입 검사가 이루어지지 않으므로 에러가 발생하지 않습니다.
+
+let obj101: any = { key: "value1" }; // any 타입의 변수에 객체를 할당
+let str101: string = obj101; // any 타입의 변수를 문자열 타입에 할당 (에러 발생하지 않음)
+console.log(str101)
+// console.log(str101.a); // error
+
+let obj100 = { key: "value" }; // 객체
+// let str105: string = obj100; // 객체를 문자열 타입에 할당 (에러 
+
+
+let num100 :(string|number) =1
+let num101 :string|number =1
+let answer102 :(string|number)[] = [1,'string',100]
+let result103 :{data:(number|string)}[] = [{data:123},{data:"data_string"}];
+
+type StringArray100 = Array<string>;
+type NumberArray100 = Array<number>;
+
+type ObjectWtihNameArray100 = Array<{ name: string }>;
+let result_100 :ObjectWtihNameArray100 = [{name:"a"},{name:"a"},{name:"a"},{name:"a"}]
+
+let result104 = "a"+1;
+
+let result108;  // 선언만 하게 되면 type은 any이다   // 암시적으로 any 타입 지정
+result108=123;
+result108="string";
+
+/*
+function result105(x : number|string){
+    return x +1; // error
+}
+*/
+
+type WindowStates = "open" | "closed" | "minimized";
+type LockStates = "locked" | "unlocked";
+type PositiveOddNumbersUnderTen = 1 | 3 | 5 | 7 | 9;
+
+let result106 :WindowStates="closed";
+let result107  :PositiveOddNumbersUnderTen = 9;
+
