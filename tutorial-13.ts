@@ -160,3 +160,24 @@ const hacker : Box3<string> ={contents: "hacker"};
 console.log("hacker:",hacker);
 
 
+interface User100 {
+    name: string;
+    id:number;
+    
+}
+
+class UserAccount100{
+    name: string;
+    id :number;
+
+    constructor(name :string, id :number){
+        this.name = name;
+        this.id = id;
+    }
+}
+
+const user201 :User100 = new UserAccount100("murphy",1);
+
+type WindowStates_100 = "open" | "closed" | "minimized";
+
+let ws_101 :WindowStates_100 = "closed";
